@@ -1,6 +1,7 @@
 export interface StyleMatcherOptions {
 
   informationContainerTargetSelector?: string;
+  authWrapperTargetSelector?: string;
   schemeContainerTargetSelector?: string;
   modelsContainerTargetSelector?: string;
 
