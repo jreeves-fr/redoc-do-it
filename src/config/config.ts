@@ -1,4 +1,4 @@
-export abstract class Config<T> {
+export abstract class Config<T extends object> {
     protected readonly options:T;
 
     public constructor(options: T) {
