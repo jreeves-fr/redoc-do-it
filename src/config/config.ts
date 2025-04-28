@@ -1,17 +1,10 @@
-export abstract class Config<T extends object> {
-    protected readonly options:T;
-
-    public constructor(options: T) {
-        this.options = options;
-        for ( const key of Object.keys(options) as Array<keyof Config<T>> ) {
-            const option = (key in this ? key : `_${key}` as keyof Config<T>);
-            if ( option in this ) {
-                this[option] = options[key];
+export const Config = { 
+    parseOptions: <THIZ extends Record<string, any>, T extends Record<string, any>>(thiz: THIZ, options: T) => {
+        Object.keys(options).forEach(key => {
+            if (thiz.hasOwnProperty(key)) {
+                thiz[key as keyof THIZ] = options[key];
             }
-        }
-    }
-
-    protected get cdnUrl(): string {
-        return 'https://cdn.jsdelivr.net/npm/';
-    }
+        });
+    },
+    cdnUrl: 'https://cdn.jsdelivr.net/npm/'
 }
