@@ -40,6 +40,7 @@ interface IStyle {
     'top'?:number|string;
     'visibility'?:'hidden'|'visible';
     'width'?:number|string;
+    'word-wrap'?: 'normal'|'break-word'|'initial'|'inherit';
     'z-index'?:number;
 }
 
