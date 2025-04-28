@@ -1,0 +1,11 @@
+{
+    "cSpell.customDictionaries": {
+        "custom-dictionary-workspace": {
+            "name": "custom-dictionary-workspace",
+            "path": "${workspaceFolder:redoc-do-it}/.cspell/dictionary.txt",
+            "addWords": true,
+            "scope": "workspace"
+        }
+    },
+    "liveServer.settings.port": 5501
+}

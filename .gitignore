@@ -1,4 +1,7 @@
-dist
-node_modules
+node_modules/**
+dist/**
+!dist/redoc-do-it.min.js
+!dist/index.html
+!dist/index.petstore.html
 .idea
 *.log

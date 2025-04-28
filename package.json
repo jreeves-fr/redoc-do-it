@@ -2,7 +2,7 @@
     "name": "redoc-try-it-out",
     "version": "1.0.9",
     "description": "Using Swagger UI Try It Out function on Redoc",
-    "jsdelivr": "./dist/try-it-out.js",
+    "jsdelivr": "./dist/redoc-do-it.js",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "scripts": {

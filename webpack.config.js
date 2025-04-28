@@ -7,13 +7,15 @@ module.exports = {
         rules: [
             {
                 test: /\.tsx?$/,
-                use: [{
-                    loader: 'ts-loader',
-                    options: {
-                        configFile: 'tsconfig.webpack.json'
-                    }
-                }],
-                exclude: /node_modules/
+                use: [
+                    {
+                        loader: 'ts-loader',
+                        options: {
+                            configFile: 'tsconfig.webpack.json',
+                        },
+                    },
+                ],
+                exclude: /node_modules/,
             },
         ],
     },
@@ -21,7 +23,7 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js'],
     },
     output: {
-        filename: 'try-it-out.min.js',
-        path: path.resolve(__dirname, 'dist')
+        filename: 'redoc-do-it.min.js',
+        path: path.resolve(__dirname, 'dist'),
     },
 };
