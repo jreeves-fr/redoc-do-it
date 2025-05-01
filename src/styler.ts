@@ -39,11 +39,23 @@ export class Styler {
         StyleBuilder
             .add(TryBtn.cfg.selector)
                 .resetBorder()
-                .cloneBorder(Styler.cfg.$authBtnSource)
+                // .cloneBorder(Styler.cfg.$authBtnSource)
                 .cloneFont(Styler.cfg.$httpVerbSource)
                 .cloneStyles(Styler.cfg.$httpVerbSource, ['padding'])
-                .cloneStyles(Styler.cfg.$authBtnSource, ['color'])
-                .style({ 'background-color': Styler.cfg.defaultBackgroundColor, 'margin-left': '2px', 'cursor': 'pointer' });
+                // .cloneStyles(Styler.cfg.$authBtnSource, ['color'])
+                .style({
+                    'border': '1px solid rgb(50,50,159)',
+                    // 'background-color': Styler.cfg.defaultBackgroundColor,
+                    'background-color': 'rgba(255, 255, 255, 0.9)',
+                    'color': 'rgb(50, 50, 159)',
+                    'margin-left': '12px',
+                    'cursor': 'pointer',
+                    'width': '60px',
+                    'box-shadow': 'inset 0 0 8px -2px rgb(50, 50, 159)'
+                })
+            .add(`${TryBtn.cfg.selector}:hover`)
+                // .style({'box-shadow': 'inset 0 0 8px -2px rgb(255, 255, 255)', 'font-weight': 700});
+                .style({'box-shadow': '0 0 8px -2px white, inset 0 0 8px -2px white', 'font-weight': 500});
     }
 
     private static inputApplies(): void {
@@ -93,6 +105,10 @@ export class Styler {
                 .style({'display':'block'});
 
         StyleBuilder
+            .add(Styler.cfg.httpVerbSourceSelector)
+                .style({ 'border-radius': '4px'});
+
+        StyleBuilder
             .add(Styler.cfg.operationContainerTargetSelector)
                 .cloneStyles(Styler.cfg.$dataSectionSource, 'padding')
                 .resetBorder()
@@ -125,9 +141,26 @@ export class Styler {
                 .noPadding()
             .add(Styler.cfg.executeBtnTargetSelector)
                 .resetBorder()
-                .cloneBorder(Styler.cfg.$authBtnSource)
-                .cloneFont(Styler.cfg.$authBtnSource)
-                .cloneStyles(Styler.cfg.$authBtnSource, ['background-color'])
+                .style({
+                    'border': '1px solid rgb(50,50,159)',
+                    'color': 'rgb(50, 50, 159)',
+                    'font-weight': 400,
+                    // 'margin-left': '0.5em',
+                    'padding': '0.25em 0.5em',
+                    'background-color': Styler.cfg.defaultBackgroundColor })
+                // .cloneBorder(Styler.cfg.$authBtnSource)
+                // .cloneFont(Styler.cfg.$authBtnSource)
+                // .cloneStyles(Styler.cfg.$authBtnSource, ['background-color'])
+                .add(`${Styler.cfg.executeBtnTargetSelector}:hover`)
+                .resetBorder()
+                .style({
+                    'border': '1px solid rgb(50,50,159)',
+                    'background-color': 'rgb(50, 50, 159)',
+                    'font-weight': 400,
+                    // 'margin-left': '0.5em',
+                    'padding': '0.25em 0.5em',
+                    'color': Styler.cfg.defaultBackgroundColor,
+                    'box-shadow': '0 5px 15px rgba(50, 50, 159, 0.4)'})
             .add(Styler.cfg.operationHeaderContainerTargetSelector)
                 .cloneStyles(Styler.cfg.$h5Source, ['padding', 'margin'])
                 .style({ 'box-shadow': 'none' })
@@ -143,7 +176,7 @@ export class Styler {
                 .noPadding()
             .add(Styler.cfg.parameterNameFieldTargetSelector)
                 .cloneFont(Styler.cfg.$fieldSource)
-                .style({ float: 'right', width: '160px', 'word-wrap':'break-word' })
+                .style({ float: 'right', width: '80px', 'word-wrap':'break-word' })
             .add(Styler.cfg.parameterRequiredTargetSelector)
                 .noPadding()
                 .cloneFont(Styler.cfg.$requiredFieldSource)
@@ -168,29 +201,41 @@ export class Styler {
             .add(Styler.cfg.serverResponseSubHeaderTargetSelector)
                 .cloneFont(Styler.cfg.$labelSource)
             .add(Styler.cfg.responseMicrolightTargetSelector)
-                .cloneFont(Styler.cfg.$codeSource, true)
+                //.cloneFont(Styler.cfg.$codeSource, true)
                 .cloneStyles(Styler.cfg.$codeBoxSource, 'background-color', true)
                 .resetBorder()
+                //TODO: Change colors based on theme
+                .style({'color': 'white'})
             .add(Styler.cfg.responseCodeTargetSelector)
                 .cloneFont(Styler.cfg.$codeSource, true)
                 .cloneStyles(Styler.cfg.$codeBoxSource, 'background-color', true)
                 .resetBorder()
+                .style({'color': 'white'})
             .add(`${Styler.cfg.responseClipboardBtnTargetSelector}:before`)
                 .cloneFont(Styler.cfg.$btnSource)
-                .style({ 'content': '"Copy"', 'display': 'block'})
+                // .style({ 'content': '"Copy"', 'display': 'block', 'margin': '0 4px 4px 0', 'padding': '4px 8px', 'background-color': 'rgba(255, 255, 255, 0.1)'})
+                // .style({ 'content': '"Copy"', 'display': 'block'})
+                .style({ 'content': '"Copy"', 'display': 'block', 'padding': '2px 8px 2px 8px', 'color':'rgba(255,255,255,0.7)'})
+            .add(`${Styler.cfg.responseClipboardBtnTargetSelector}:hover:before`)
+                .cloneFont(Styler.cfg.$btnSource)
+                .style({ 'content': '"Copy"', 'display': 'block', 'padding': '2px 8px 2px 8px', 'color':'white', 'background-color': 'rgba(255, 255, 255, 0.1)', 'transition':'0.4s'})
             .add(Styler.cfg.responseClipboardTargetSelector)
+                .noPadding()
                 .cloneBorder(Styler.cfg.$btnSource)
-                .style({ 'background' : 'none', 'padding': '5px', 'width': '42px'})
+                .style({ 'background' : 'none', 'width': '48px'})
             .add(Styler.cfg.responseClipboardBtnTargetSelector)
                 .noPadding()
-                .style({ 'background-image': 'none', 'height': '21px'})
+                .cloneBorder(Styler.cfg.$btnSource)
+                .style({ 'background-image': 'none', 'height': '30px'})
             .add(Styler.cfg.responseCurlClipboardTargetSelector)
                 .style({ 'right': '10px', 'bottom': '18px'})
             .add(Styler.cfg.responseDownloadTargetSelector)
                 .cloneFont(Styler.cfg.$btnSource)
-                .cloneBorder(Styler.cfg.$btnSource)
-                .style({ 'background' : 'none'});
-
+                // .cloneBorder(Styler.cfg.$btnSource)
+                .resetBorder()
+                .style({ 'height':'25px', 'padding': '2px 8px 2px 8px', 'background' : 'none', 'color':'rgba(255,255,255,0.7)'})
+            .add(`${Styler.cfg.responseDownloadTargetSelector}:hover`)
+                .style({ 'color':'white', 'background-color': 'rgba(255, 255, 255, 0.1)', 'transition':'0.4s'});
         TryBtn.$btn.on('click', Styler.createStyleElements);
     }
 

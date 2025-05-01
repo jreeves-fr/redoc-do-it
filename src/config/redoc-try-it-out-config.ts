@@ -14,7 +14,7 @@ export class RedocTryItOutConfig implements RedocTryItOutOptions {
 
     public readonly tryItOutEnabled: boolean = true;
     public readonly tryItBoxContainerId: string = 'try-out-wrapper';
-    public readonly redocVersion: string = '2.0.0-rc.56';
+    public readonly redocVersion: string = '2.5.0'; // '2.0.0-rc.56';
     public readonly selectedOperationClass: string = 'try';
 
     public readonly dependenciesVersions: DependenciesVersions = { jquery: '3.6.0', jqueryScrollTo: '2.1.2' };

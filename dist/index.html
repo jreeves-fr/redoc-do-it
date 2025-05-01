@@ -7,7 +7,38 @@
         <script>
             RedocTryItOut.init(
                 "https://petstore.swagger.io/v2/swagger.json",
-                { title: "Pet Store" },
+                { 
+                    disableSearch: true,
+                    scrollYOffset: 50,
+                    hideDownloadBtn: true,
+                    hideHostname: true,
+                    hideSchemaTitles: true,
+                    expandResponses: '200',
+                    theme: {
+                        sidebar: {
+                            width: '300px'
+                        },
+                        rightPanel: {
+                        width: '50%',
+                    },
+                        breakpoints: {
+                            small: '50rem',
+                            medium: '118rem',
+                            large: '200rem',
+                        },
+                        colors: {
+                            primary: {
+                                main: '#ff0000',
+                            },
+                        },
+                        typography: {
+                            fontSize: '14px',
+                        },
+                        code: {
+                            fontFamily: 'monospace',
+                        }
+                    },
+                },
                 document.getElementById("redoc_container"),
             );
         </script>

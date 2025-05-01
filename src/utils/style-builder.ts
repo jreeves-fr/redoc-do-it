@@ -38,6 +38,7 @@ interface IStyle {
     'right'?: number|string;
     'text-transform'?: string;
     'top'?:number|string;
+    'transition'?: string;
     'visibility'?:'hidden'|'visible';
     'width'?:number|string;
     'word-wrap'?: 'normal'|'break-word'|'initial'|'inherit';
@@ -115,8 +116,8 @@ class Style {
     public cloneStyles($source: JQuery, attributes:string|Array<string>, forceOverride?: boolean): Style {
         const important = forceOverride ? '!important' : '';
         attributes = Array.isArray(attributes) ? attributes : [ attributes ]
-        attributes.forEach(atrribute =>
-            this.style({ [atrribute]: `${$source.css(atrribute)} ${important}`} )
+        attributes.forEach(attribute =>
+            this.style({ [attribute]: `${$source.css(attribute)} ${important}`} )
         );
         return this;
     }
